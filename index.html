@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    <script type="module" src="scripts/app.js" defer></script>
+    <title>Les Petits Plats</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="./" class="nav_logo"><img src="assets/svg/Logo.svg" alt="logo les petits plats" tabindex="0"></a>
+        </nav>
+        <h1 class="title">CHERCHEZ PARMIS PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET DELICIEUSES</h1>
+        <div class="search_bar">
+            <label for="search"></label>
+            <input type="search" id="search" name="search" placeholder="Recherchez une recette, un ingrédient, ...">
+            <button class="search_button"><img src="assets/svg/Loop.svg" alt="bouton de recherche"></button>
+        </div>
+        <img src="assets/imgs/banner.png" alt="bannière" class="banner_img">
+    </header>
+    <main>
+        <div class="filter_section">
+            <div class="filter_wrapper">
+                <div class="dropdown_section">
+                    <div class="dropdown" id="ingredients" tabindex="0">
+                        <div class="dropdown_title_section">
+                            <h2 class="dropdown_title">Ingrédients</h2>
+                            <img src="assets/svg/Vector.svg" alt="chevron" class="dropdown_vector">
+                        </div>
+                        <div class="dropdown_content">
+                            <div class="dropdown_search">
+                                <input type="seach" class="dropdown_search_input" id="search_ingredient" name="seach">
+                                <img src="assets/svg/Dropdown-loop.svg" alt="loupe" class="dropdown_loop">
+                            </div>
+                            <ul class="dropdown_list" id="ingredients_list"></ul>
+                        </div>      
+                    </div>
+                    <div class="dropdown" id="appliances" tabindex="0">
+                        <div class="dropdown_title_section">
+                            <h2 class="dropdown_title">Appareils</h2>
+                            <img src="assets/svg/Vector.svg" alt="chevron" class="dropdown_vector">
+                        </div>
+                        <div class="dropdown_content">
+                            <div class="dropdown_search">
+                                <input type="seach" class="dropdown_search_input" id="search_appliance" name="seach">
+                                <img src="assets/svg/Dropdown-loop.svg" alt="loupe" class="dropdown_loop">
+                            </div>
+                            <ul class="dropdown_list" id="appliances_list"></ul>
+                        </div>                
+                    </div>
+                    <div class="dropdown" id="ustensils" tabindex="0">
+                        <div class="dropdown_title_section">
+                            <h2 class="dropdown_title">Ustensils</h2>
+                            <img src="assets/svg/Vector.svg" alt="chevron" class="dropdown_vector">
+                        </div>
+                        <div class="dropdown_content">
+                            <div class="dropdown_search">
+                                <input type="seach" class="dropdown_search_input" id="search_ustensil" name="seach">
+                                <img src="assets/svg/Dropdown-loop.svg" alt="loupe" class="dropdown_loop">
+                            </div>
+                            <ul class="dropdown_list" id="ustensils_list"></ul>
+                        </div>              
+                    </div>
+                </div>
+                <span class="number_recipes"></span>
+            </div>
+            <div class="tags"></div>
+        </div>
+        <div class="recipes_section"></div>
+    </main>
+</body>
+</html>
