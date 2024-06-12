@@ -1,7 +1,8 @@
 import { recipes } from "./data/recipes.js";
-import { handleDropdown, fillDropdowns } from "./utils/dropdown.js";
+import { handleDropdown, /*fillDropdowns*/ } from "./utils/dropdown.js";
 import { recipeTemplateGallery } from "./view/gallery.js";
 import { initializeSearch } from "./utils/search.js";
+import { updateDropdowns } from "./utils/updateDropdowns.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -9,14 +10,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdownContent = document.querySelectorAll('.dropdown_content');
     const arrow = document.querySelectorAll('.dropdown_vector');
 
-    // Remplissage et sélection des 3 filtres
-
-    handleDropdown(dropdownTitleSection, dropdownContent, arrow);
-    fillDropdowns(recipes);
-
     // Affichage des recettes 
 
     recipeTemplateGallery(recipes);
+
+    // Initialisation des dropdowns avec toutes les recettes
+
+    updateDropdowns(recipes);
+
+    // Sélection des 3 dropdowns
+
+    handleDropdown(dropdownTitleSection, dropdownContent, arrow);
+    /*fillDropdowns(recipes);*/
 
     // Initialisation de la recherche
     

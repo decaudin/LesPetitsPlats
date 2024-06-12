@@ -21,8 +21,6 @@ export const initializeSearch = (recipes) => {
 
             const results = searchRecipes(query, recipes);
 
-            console.log(results);
-
             if (results.length > 0) {
 
                 // Mise à jour de la galerie et des dropdowns avec les résultats de recherche
@@ -39,7 +37,7 @@ export const initializeSearch = (recipes) => {
 
                 messageContainer.innerHTML = `<p>Aucune recette ne contient ‘${query}’. Vous pouvez chercher « tarte aux pommes », « poisson », etc.</p>`;
                 
-                document.getElementById('recipes-gallery').innerHTML = '';
+                recipeTemplateGallery([]);
                 
                 updateDropdowns([]);
             }

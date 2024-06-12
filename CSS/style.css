@@ -48,6 +48,7 @@ header {
     height: 72px;
     border-radius: 10px;
     padding-left: 20px;
+    padding-right: 70px;
     font-size: 1rem;
 }
 
@@ -138,7 +139,7 @@ img.banner_img {
 }
 
 .dropdown_list {
-    max-height: 260px;
+    max-height: 210px;
     overflow-y: auto;
 }
 
@@ -165,6 +166,7 @@ img.banner_img {
     row-gap: 50px;
     width: 90%;
     margin: auto;
+    margin-bottom: 100px;
 }
 
 .recipe_card {
@@ -223,4 +225,12 @@ img.banner_img {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 50px;
     row-gap: 30px;
+}
+
+.message-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -80px;
+    font-weight: bold;
 }

@@ -38,7 +38,7 @@ export const handleDropdown = (titles, contents, vectors) => {
 
 // Fonction de création d'un élément de la liste
 
-const createListItems = (items, listElement) => {
+/*const createListItems = (items, listElement) => {
 
     listElement.innerHTML = '';
 
@@ -77,7 +77,7 @@ export const fillDropdowns = (recipes) => {
     createListItems(Array.from(appliancesSet), appliancesList);
     createListItems(Array.from(ustensilsSet), ustensilsList);
 
-};
+}; */
 
 
 
