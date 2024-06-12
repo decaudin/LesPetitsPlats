@@ -1,6 +1,7 @@
 import { recipes } from "./data/recipes.js";
 import { handleDropdown, fillDropdowns } from "./utils/dropdown.js";
 import { recipeTemplateGallery } from "./view/gallery.js";
+import { initializeSearch } from "./utils/search.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -16,4 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Affichage des recettes 
 
     recipeTemplateGallery(recipes);
+
+    // Initialisation de la recherche
+    
+    initializeSearch(recipes);
 });

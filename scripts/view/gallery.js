@@ -11,6 +11,10 @@ numberRecipes.innerText = `${recipes.length} recettes`
 
 const recipesSection = document.querySelector('.recipes_section');
 
+// Vidage de la galerie
+
+recipesSection.innerHTML = '';
+
 // Itération sur chaque recette pour lui créer une card via le template 'recipeTemplate'
 
 recipes.forEach((recipe) => {
