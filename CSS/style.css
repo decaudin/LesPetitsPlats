@@ -227,3 +227,11 @@ img.banner_img {
     column-gap: 50px;
     row-gap: 30px;
 }
+
+.message-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -80px;
+    font-weight: bold;
+}

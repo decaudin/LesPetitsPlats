@@ -5,6 +5,7 @@ import { updateDropdowns } from "./updateDropdowns.js";
 export const initializeSearch = (recipes) => {
 
     const searchInput = document.getElementById('search');
+    const messageContainer = document.querySelector('.message-container');
 
     // Ajour d'un écouteur d'évènement sur le champ de saisie
     
@@ -20,19 +21,36 @@ export const initializeSearch = (recipes) => {
 
         const results = searchRecipes(query, recipes);
 
-        // Mise à jour de la galerie et des dropdowns avec les résultats de recherche
+            if (results.length > 0) {
 
-        recipeTemplateGallery(results);
+            // Mise à jour de la galerie et des dropdowns avec les résultats de recherche
 
-        updateDropdowns(results);
+            recipeTemplateGallery(results);
 
+            updateDropdowns(results);
+
+            messageContainer.innerHTML = '';
+
+            } else {
+
+                // Afficher le message d'erreur si aucune recette ne correspond, effacer la gallerie et le contenu des Dropdowns
+                
+                messageContainer.innerHTML = `Aucune recette ne contient ‘${query}’. Vous pouvez chercher « tarte aux pommes », « poisson », etc.`;
+                
+                recipeTemplateGallery([]); 
+                
+                updateDropdowns([]);
+            } 
+        
         } else {
 
             // Affichage/mise à jour de la galerie et des dropdowns avec toutes les recettes
-        
+            
             recipeTemplateGallery(recipes);
 
             updateDropdowns(recipes);
+
+            messageContainer.innerHTML = '';
         }
     });
 };
