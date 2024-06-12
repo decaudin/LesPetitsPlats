@@ -22,6 +22,8 @@ export const handleDropdown = (titles, contents, vectors) => {
         });
     });
 
+    // Empêche le dropdown ouvert de se refermer au clic
+
     contents.forEach((content) => {   
         content.addEventListener('click', (e) => {
             e.stopPropagation();
