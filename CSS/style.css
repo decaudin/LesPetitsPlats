@@ -145,6 +145,10 @@ img.banner_img {
     overflow-y: auto;
 }
 
+.dropdown_list::-webkit-scrollbar {
+    display: none; 
+}
+
 .dropdown_list__item {
     margin-bottom: 10px;
     cursor: pointer;
