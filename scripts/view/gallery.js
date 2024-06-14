@@ -1,11 +1,11 @@
 import { recipeTemplate } from "./card.js";
+import { updateDisplayedRecipesCount } from "../utils/updateDisplayRecipesCount.js";
 
 export const recipeTemplateGallery = (recipes) => {
 
 // Nombre de recettes affichées sur la page
 
-const numberRecipes = document.querySelector('.number_recipes');
-numberRecipes.innerText = `${recipes.length} recettes`
+updateDisplayedRecipesCount(recipes);
 
 // Affichage de la galerie de recettes
 

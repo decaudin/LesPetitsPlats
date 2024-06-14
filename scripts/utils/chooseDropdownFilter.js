@@ -1,4 +1,5 @@
 import { updateDropdowns } from "./updateDropdowns.js";
+import { updateDisplayedRecipesCount } from "./updateDisplayRecipesCount.js";
 
 // Fonction pour enlever les accents d'une chaîne de caractères
 
@@ -68,6 +69,10 @@ const updateRecipeDisplay = () => {
     // Mettre à jour les dropdowns avec les ingrédients, appareils et ustensiles des recettes visibles
 
     updateDropdowns(visibleRecipes);
+
+    // Fonction pour mettre à jour le compteur de recette affichées
+
+    updateDisplayedRecipesCount(visibleRecipes);
 
 };
 
