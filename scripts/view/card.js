@@ -9,6 +9,12 @@ export const recipeTemplate = (recipe) => {
         const recipeCard = document.createElement('article');
         recipeCard.classList = 'recipe_card';
 
+        // Ajout des attributs de données
+
+        recipeCard.setAttribute('data-ingredients', ingredients.map(i => i.ingredient).join(','));
+        recipeCard.setAttribute('data-appliance', appliance);
+        recipeCard.setAttribute('data-ustensils', ustensils.join(','));
+
         const recipeDuration = document.createElement('span');
         recipeDuration.classList = 'recipe_duration';
         recipeDuration.textContent = `${time}min`;

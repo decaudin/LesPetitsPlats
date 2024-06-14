@@ -5,7 +5,7 @@ import { updateDropdowns } from "./updateDropdowns.js";
 export const initializeSearch = (recipes) => {
 
     const searchInput = document.getElementById('search');
-    const messageContainer = document.querySelector('.message-container');
+    const messageContainer = document.querySelector('.message_container');
 
     // Ajout d'un écouteur d'évènement sur le champ de saisie
 

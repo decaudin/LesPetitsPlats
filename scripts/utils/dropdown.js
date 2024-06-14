@@ -1,3 +1,5 @@
+// Fonction pour l'ouverture/fermeture des Dropdowns et pivotement du chevron au clic 
+
 export const handleDropdown = (titles, contents, vectors) => {
 
     titles.forEach((title, index) => {
@@ -20,7 +22,7 @@ export const handleDropdown = (titles, contents, vectors) => {
         });
     });
 
-    // Empêche le dropdown ouvert de se refermer au clic
+    // Empêche le dropdown ouvert de se refermer au clic dedans
 
     contents.forEach((content) => {   
         content.addEventListener('click', (e) => {
