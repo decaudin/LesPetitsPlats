@@ -2,7 +2,7 @@ import { dropdownAddtag } from "./dropdownAddtag.js";
 
 // Fonction de création et de mise à jour des <li> de chaque Dropdown
 
-const populateDropdownList = (dropdown, items, type) => {
+const populateDropdownList = (dropdown, items, type, input) => {
 
     dropdown.innerHTML = '';
     
@@ -21,7 +21,7 @@ const populateDropdownList = (dropdown, items, type) => {
 
     // Attacher les événements de clic aux nouveaux éléments de dropdown
     
-    dropdownAddtag(dropdown);
+    dropdownAddtag(dropdown, input);
 };
 
 // Affichage et mise à jour du contenu des dropdowns
@@ -56,13 +56,17 @@ export const updateDropdowns = (recipes) => {
     const appliancesDropdown = document.getElementById('appliances_list');
     const ustensilsDropdown = document.getElementById('ustensils_list');
 
+    const ingredientInput = document.getElementById('search_ingredient');
+    const applianceInput = document.getElementById('search_appliance');
+    const ustensilInput = document.getElementById('search_ustensil');
+
     ingredientsDropdown.innerHTML = '';
     appliancesDropdown.innerHTML = '';
     ustensilsDropdown.innerHTML = '';
 
     // Appel de la fonction populateDropdownList pour créer les 3 listes
 
-    populateDropdownList(ingredientsDropdown, ingredients, 'ingredient');
-    populateDropdownList(appliancesDropdown, appliances, 'appliance');
-    populateDropdownList(ustensilsDropdown, ustensils, 'ustensil');
+    populateDropdownList(ingredientsDropdown, ingredients, 'ingredient', ingredientInput);
+    populateDropdownList(appliancesDropdown, appliances, 'appliance', applianceInput);
+    populateDropdownList(ustensilsDropdown, ustensils, 'ustensil', ustensilInput);
 };

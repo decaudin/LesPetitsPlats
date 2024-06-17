@@ -93,13 +93,14 @@ const addTag = (tagText, tagType) => {
 
 // Fonction pour ajouter un tag au clic (via 'addTag') sur une <li> d'un dropdown
 
-export const dropdownAddtag = (dropdown) => {
+export const dropdownAddtag = (dropdown, input) => {
 
     const options = dropdown.querySelectorAll('.dropdown_list__item');
     options.forEach(option => {
         option.addEventListener('click', () => {
             const tagType = option.getAttribute('data-type');
             addTag(option.textContent, tagType);
+            input.value = '';
         });
     });
 };
