@@ -2,7 +2,7 @@ import { searchRecipes } from "./searchRecipes.js";
 import { recipeTemplateGallery } from "../view/gallery.js";
 import { updateDropdowns } from "./updateDropdowns.js";
 
-export const initializeSearch = (recipes) => {
+export const principaleSearch = (recipes) => {
 
     const searchInput = document.getElementById('search');
     const messageContainer = document.querySelector('.message_container');

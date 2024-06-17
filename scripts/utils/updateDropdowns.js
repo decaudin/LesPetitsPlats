@@ -1,6 +1,6 @@
-import { addTag } from "./chooseDropdownFilter.js";
+import { dropdownAddtag } from "./dropdownAddtag.js";
 
-// Fonction de création et de mise à jour des éléments de la liste de chaque Dropdown
+// Fonction de création et de mise à jour des <li> de chaque Dropdown
 
 const populateDropdownList = (dropdown, items, type) => {
 
@@ -21,21 +21,10 @@ const populateDropdownList = (dropdown, items, type) => {
 
     // Attacher les événements de clic aux nouveaux éléments de dropdown
     
-    attachDropdownItemEvents(dropdown);
+    dropdownAddtag(dropdown);
 };
 
-// Fonction pour attacher les événements de clic aux éléments de dropdown
-
-const attachDropdownItemEvents = (dropdown) => {
-
-    const options = dropdown.querySelectorAll('.dropdown_list__item');
-    options.forEach(option => {
-        option.addEventListener('click', () => {
-            const tagType = option.getAttribute('data-type');
-            addTag(option.textContent, tagType);
-        });
-    });
-};
+// Affichage et mise à jour du contenu des dropdowns
 
 export const updateDropdowns = (recipes) => {
 
