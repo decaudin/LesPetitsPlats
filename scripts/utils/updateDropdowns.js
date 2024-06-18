@@ -1,4 +1,5 @@
 import { dropdownAddtag } from "./dropdownAddtag.js";
+import { escapeHtml } from "./escapeHtml.js";
 
 // Fonction de création et de mise à jour des <li> de chaque Dropdown
 
@@ -10,7 +11,7 @@ const populateDropdownList = (dropdown, items, type, input) => {
 
     items.forEach(item => {
         
-        const capitalizedItem = item.charAt(0).toUpperCase() + item.slice(1);
+        const capitalizedItem = escapeHtml(item.charAt(0).toUpperCase() + item.slice(1));
         const listItem = document.createElement('li');
         listItem.textContent = capitalizedItem;
         listItem.classList.add('dropdown_list__item');
@@ -36,11 +37,11 @@ export const updateDropdowns = (recipes) => {
 
     recipes.forEach(recipe => {
         recipe.ingredients.forEach(ingredient => {
-            ingredientSet.add(ingredient.ingredient.toLowerCase());
+            ingredientSet.add(escapeHtml(ingredient.ingredient.toLowerCase()));
         });
-        applianceSet.add(recipe.appliance);
+        applianceSet.add(escapeHtml(recipe.appliance));
         recipe.ustensils.forEach(ustensil => {
-            ustensilSet.add(ustensil);
+            ustensilSet.add(escapeHtml(ustensil));
         });
     });
 

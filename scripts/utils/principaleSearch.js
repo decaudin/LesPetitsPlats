@@ -1,6 +1,7 @@
 import { searchRecipes } from "./searchRecipes.js";
 import { recipeTemplateGallery } from "../view/gallery.js";
 import { updateDropdowns } from "./updateDropdowns.js";
+import { escapeHtml } from "./escapeHtml.js";
 
 export const principaleSearch = (recipes) => {
 
@@ -11,9 +12,13 @@ export const principaleSearch = (recipes) => {
 
     searchInput.addEventListener('input', () => {
 
-        // Récupérez la valeur saisie dans le champ de recherche
+        // Récupérer la valeur saisie dans le champ de recherche
 
-        const query = searchInput.value.trim();
+        let query = searchInput.value.trim();
+
+        // Nettoyer la requête de l'utilisateur
+
+        query = escapeHtml(query);
 
         if (query.length > 2) {
 
