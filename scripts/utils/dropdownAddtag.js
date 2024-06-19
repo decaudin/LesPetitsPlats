@@ -1,6 +1,5 @@
 import { updateDropdowns } from "./updateDropdowns.js";
 import { recipesCounter } from "./recipesCounter.js";
-import { escapeHtml } from "./escapeHtml.js";
 
 // Fonction pour mettre à jour l'affichage des recettes, le contenu des dropdowns et le compteur de recettes en fonction des tags sélectionnés
 
@@ -61,15 +60,11 @@ const addTag = (tagText, tagType) => {
 
     const tagsContainer = document.querySelector('.tags');
 
-    // Nettoyer le texte du tag 
-
-    const cleanedTagText = escapeHtml(tagText);
-
     // Vérifiez si le tag existe déjà
 
     const existingTag = Array.from(tagsContainer.getElementsByClassName('tag')).find(tag => {
             
-        return tag.textContent.toLowerCase().includes(cleanedTagText.toLowerCase()) && tag.getAttribute('data-type') === tagType;
+        return tag.textContent.toLowerCase().includes(tagText.toLowerCase()) && tag.getAttribute('data-type') === tagType;
     });
     
     if (existingTag) {
@@ -80,7 +75,7 @@ const addTag = (tagText, tagType) => {
     const tag = document.createElement('div');
     tag.classList.add('tag');
     tag.setAttribute('data-type', tagType);
-    tag.textContent = cleanedTagText;
+    tag.textContent = tagText;
     
     const closeIcon = document.createElement('img');
     closeIcon.src = 'assets/svg/close.svg';
@@ -104,7 +99,7 @@ export const dropdownAddtag = (dropdown, input) => {
     options.forEach(option => {
         option.addEventListener('click', () => {
             const tagType = option.getAttribute('data-type');
-            const tagText = escapeHtml(option.textContent);
+            const tagText = option.textContent;
             addTag(tagText, tagType);
             input.value = '';
         });

@@ -1,4 +1,5 @@
 import { stringContains } from "./stringContains.js";
+import { escapeHtml } from "./escapeHtml.js";
 
 // Fonction pour mettre à jour les dropdowns avec filtrage via l'input
 
@@ -11,9 +12,9 @@ export const chooseDropdownFilter = (inputFieldId, dropdownListId) => {
 
     inputField.addEventListener('input', () => {
 
-        const searchText = inputField.value.trim().toLowerCase();
+        const searchText = escapeHtml(inputField.value.trim().toLowerCase());
 
-        const options = Array.from(dropdownList.querySelectorAll('.dropdown_list__item, .dropdown_list__item.visible, .dropdown_list__item.hidden')); // TEST
+        const options = Array.from(dropdownList.querySelectorAll('.dropdown_list__item, .dropdown_list__item.visible, .dropdown_list__item.hidden'));
 
         options.forEach(option => {
 
