@@ -48,9 +48,7 @@ export const updateDropdowns = (recipes) => {
 
     const ingredients = Array.from(ingredientSet).sort();
     const appliances = Array.from(applianceSet).sort();
-    const ustensils = Array.from(ustensilSet).sort();
-
-    // Nettoyer les listes déroulantes existantes
+    const ustensils = Array.from(ustensilSet).sort();    
 
     const ingredientsDropdown = document.getElementById('ingredients_list');
     const appliancesDropdown = document.getElementById('appliances_list');
@@ -59,6 +57,8 @@ export const updateDropdowns = (recipes) => {
     const ingredientInput = document.getElementById('search_ingredient');
     const applianceInput = document.getElementById('search_appliance');
     const ustensilInput = document.getElementById('search_ustensil');
+
+    // Nettoyer les listes déroulantes existantes
 
     ingredientsDropdown.innerHTML = '';
     appliancesDropdown.innerHTML = '';

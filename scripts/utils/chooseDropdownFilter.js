@@ -1,7 +1,7 @@
 import { stringContains } from "./stringContains.js";
 import { escapeHtml } from "./escapeHtml.js";
 
-// Fonction pour mettre à jour les dropdowns avec filtrage via l'input
+// Fonction pour mettre à jour les <li> des dropdowns avec filtrage via l'input
 
 export const chooseDropdownFilter = (inputFieldId, dropdownListId) => {
 

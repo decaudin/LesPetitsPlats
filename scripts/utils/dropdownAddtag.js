@@ -1,11 +1,11 @@
 import { updateDropdowns } from "./updateDropdowns.js";
 import { recipesCounter } from "./recipesCounter.js";
 
+const tagsContainer = document.querySelector('.tags');
+
 // Fonction pour mettre à jour l'affichage des recettes, le contenu des dropdowns et le compteur de recettes en fonction des tags sélectionnés
 
 const updateRecipeDisplay = () => {
-
-    const tagsContainer = document.querySelector('.tags');
 
     // Création d'un tableau 'tags' contenant les tags sélectionnés depuis les dropdowns
 
@@ -54,11 +54,9 @@ const updateRecipeDisplay = () => {
 };
 
 
-// Fonction pour ajouter un tag et filtrer la galerie en conséquence
+// Fonction pour créer, ajouter un tag et filtrer la galerie en conséquence
 
 const addTag = (tagText, tagType) => {
-
-    const tagsContainer = document.querySelector('.tags');
 
     // Vérifiez si le tag existe déjà
 
