@@ -1,30 +1,28 @@
 import { recipeTemplate } from "./card.js";
+import { recipesCounter } from "../utils/recipesCounter.js";
 
 export const recipeTemplateGallery = (recipes) => {
 
-// Nombre de recettes affichées sur la page
+    // Appel à la fonction 'recipesCounter' pour compter le nombre de recettes affichées sur la page
 
-const numberRecipes = document.querySelector('.number_recipes');
-numberRecipes.innerText = `${recipes.length} recettes`
+    recipesCounter(recipes);
 
-// Affichage de la galerie de recettes
+    // Affichage de la galerie de recettes
 
-const recipesSection = document.querySelector('.recipes_section');
+    const recipesSection = document.querySelector('.recipes_section');
 
-// Vidage de la galerie
+    // Vidage de la galerie
 
-recipesSection.innerHTML = '';
+    recipesSection.innerHTML = '';
 
-// Itération sur chaque recette pour lui créer une card via le template 'recipeTemplate'
+    // Itération sur chaque recette pour lui créer une card via le template 'recipeTemplate'
 
-recipes.forEach((recipe) => {
-    
-    const recipeModel = recipeTemplate(recipe);
+    recipes.forEach((recipe) => {
+        
+        const recipeModel = recipeTemplate(recipe);
 
-    const recipeCardDom = recipeModel.getRecipeCardDOM();
-    
-    recipesSection.appendChild(recipeCardDom);
-})
-
+        const recipeCardDom = recipeModel.getRecipeCardDOM();
+        
+        recipesSection.appendChild(recipeCardDom);
+    })
 }
-

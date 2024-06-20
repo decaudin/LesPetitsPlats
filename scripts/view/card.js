@@ -6,13 +6,25 @@ export const recipeTemplate = (recipe) => {
 
     const getRecipeCardDOM = () => {
 
+        // Création d'une balise (article)
+
         const recipeCard = document.createElement('article');
         recipeCard.classList = 'recipe_card';
+
+        // Ajout des attributs de données
+
+        recipeCard.setAttribute('data-ingredients', ingredients.map(i => i.ingredient).join(','));
+        recipeCard.setAttribute('data-appliance', appliance);
+        recipeCard.setAttribute('data-ustensils', ustensils.join(','));
+
+        // Création d'une balise pour la durée de préparation (span)
 
         const recipeDuration = document.createElement('span');
         recipeDuration.classList = 'recipe_duration';
         recipeDuration.textContent = `${time}min`;
         recipeCard.appendChild(recipeDuration);
+
+        // Création d'une balise (img)
 
         const recipeImg = document.createElement('img');
         recipeImg.classList = 'recipe_img';
@@ -24,6 +36,8 @@ export const recipeTemplate = (recipe) => {
         recipeContent.classList = 'recipe_content';
         recipeCard.appendChild(recipeContent);
 
+        // Création du titre de la recette (h3)
+
         const recipeTitle = document.createElement('h3');
         recipeTitle.classList = 'recipe_title';
         recipeTitle.textContent = `${name}`;
@@ -33,10 +47,14 @@ export const recipeTemplate = (recipe) => {
         recipeDescription.classList = 'recipe_description';
         recipeContent.appendChild(recipeDescription);
 
+        // Création du titre 'RECETTE' (h4)
+
         const descriptionTitle = document.createElement('h4');
         descriptionTitle.classList = 'description_title';
         descriptionTitle.innerText = 'RECETTE';
         recipeDescription.appendChild(descriptionTitle);
+
+        // Création du paragraphe de description de la recette (p)
 
         const descriptionText = document.createElement('p');
         descriptionText.classList = 'description_text';
@@ -47,6 +65,8 @@ export const recipeTemplate = (recipe) => {
         recipeIngredients.classList ='recipe_ingredients';
         recipeContent.appendChild(recipeIngredients);
 
+        // Création du titre 'INGREDIENTS' (h4)
+
         const ingredientsTitle = document.createElement('h4');
         ingredientsTitle.classList = 'ingredients_title';
         ingredientsTitle.innerText = 'INGRÉDIENTS';
@@ -55,6 +75,8 @@ export const recipeTemplate = (recipe) => {
         const recipeIngredientsList = document.createElement('div');
         recipeIngredientsList.classList = 'recipe_ingredients_list';
         recipeIngredients.appendChild(recipeIngredientsList);
+
+        // Création d'un titre (h5) et d'un paragraphe (p) de descrition pour chaque ingrédient
 
         ingredients.forEach(ingredient => {
 

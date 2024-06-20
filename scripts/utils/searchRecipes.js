@@ -1,3 +1,5 @@
+import { stringContains } from "./stringContains.js";
+
 export const searchRecipes = (query, recipes) => {
 
     const results = [];
@@ -15,7 +17,7 @@ export const searchRecipes = (query, recipes) => {
 
         // Vérifie si la requête correspond au nom de la recette, à un ingrédient ou à un mot dans la description
 
-        if (name.includes(normalizedQuery)) {
+        if (stringContains(name, normalizedQuery)) {
             results.push(recipe);
             i++; // Passer à la prochaine recette
             continue; // Passer à la prochaine itération de la boucle (recette suivante)
@@ -26,10 +28,10 @@ export const searchRecipes = (query, recipes) => {
 
         while (j < ingredients.length) {
             const ingredient = ingredients[j];
-            if (ingredient.includes(normalizedQuery)) {
+            if (stringContains(ingredient, normalizedQuery)) {
                 results.push(recipe);
                 matchFound = true;
-                break; // Sortir de la boucle interne si une correspondance est trouvée dans les ingrédients
+                break; // Sort de la boucle interne si une correspondance est trouvée dans les ingrédients et passe à l'instruction suivante
             }
             j++; // Passer à l'ingrédient suivant
         }
@@ -39,7 +41,7 @@ export const searchRecipes = (query, recipes) => {
             continue;
         }
 
-        if (description.includes(normalizedQuery)) {
+        if (stringContains(description, normalizedQuery)) {
             results.push(recipe);
         }
 

@@ -7,7 +7,7 @@ export const handleDropdown = (titles, contents, vectors) => {
         title.addEventListener('click', (e) => {
             e.stopPropagation();
 
-            // Empêche plusieurs dropdown d'être ouvert en même temps
+            // Empêche plusieurs dropdowns d'être ouverts en même temps
 
             contents.forEach((content, i) => {
                 if (i !== index) {
@@ -22,7 +22,7 @@ export const handleDropdown = (titles, contents, vectors) => {
         });
     });
 
-    // Empêche le dropdown ouvert de se refermer au clic
+    // Empêche le dropdown ouvert de se refermer au clic dedans
 
     contents.forEach((content) => {   
         content.addEventListener('click', (e) => {
@@ -30,7 +30,7 @@ export const handleDropdown = (titles, contents, vectors) => {
         });
     });
 
-    // Fermeture des dropdown au clic sur la page web
+    // Fermeture des dropdowns au clic sur la page web
 
     document.addEventListener('click', () => {
         contents.forEach((content, index) => {

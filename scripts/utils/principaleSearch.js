@@ -1,11 +1,12 @@
 import { searchRecipes } from "./searchRecipes.js";
 import { recipeTemplateGallery } from "../view/gallery.js";
 import { updateDropdowns } from "./updateDropdowns.js";
+import { escapeHtml } from "./escapeHtml.js";
 
-export const initializeSearch = (recipes) => {
+export const principaleSearch = (recipes) => {
 
     const searchInput = document.getElementById('search');
-    const messageContainer = document.querySelector('.message-container');
+    const messageContainer = document.querySelector('.message_container');
 
     // Ajour d'un écouteur d'évènement sur le champ de saisie
     
@@ -13,7 +14,11 @@ export const initializeSearch = (recipes) => {
 
         // Récupérez la valeur saisie dans le champ de recherche
 
-        const query = searchInput.value.trim(); 
+        let query = searchInput.value.trim();
+
+        // Nettoyer la requête de l'utilisateur
+
+        query = escapeHtml(query);
         
         if (query.length > 2) {
 
