@@ -10,11 +10,11 @@ export const filterByTags = (items, tags) => {
 
         return tags.some(tag => {
             if (tag.type === 'ingredient') {
-                return ingredients.some(ingredient => ingredient.includes(tag.text));
+                return ingredients.includes(tag.text.toLowerCase());
             } else if (tag.type === 'appliance') {
-                return appliance.includes(tag.text);
+                return appliance === tag.text.toLowerCase();
             } else if (tag.type === 'ustensil') {
-                return ustensils.some(ustensil => ustensil.includes(tag.text));
+                return ustensils.includes(tag.text.toLowerCase());
             }
             return false;
         });

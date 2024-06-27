@@ -6,7 +6,7 @@ const populateDropdownList = (dropdown, items, type, input) => {
 
     dropdown.innerHTML = '';
     
-    // Parcours tous les éléments de la liste et les ajoute au dropdown
+    // Parcours tous les éléments de la liste et les ajoute au dropdown correspondant
 
     items.forEach(item => {
         
