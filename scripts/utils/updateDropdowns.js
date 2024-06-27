@@ -32,7 +32,7 @@ export const updateDropdowns = (recipes) => {
     const applianceSet = new Set();
     const ustensilSet = new Set();
 
-    // Parcourt les recettes et ajoute les ingrédients, appareils et ustensiles aux sets
+    // Parcours les recettes et ajoute les ingrédients, appareils et ustensiles aux sets
 
     recipes.forEach(recipe => {
         recipe.ingredients.forEach(ingredient => {

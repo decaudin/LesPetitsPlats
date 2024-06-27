@@ -6,7 +6,7 @@ export const searchRecipes = (query, recipes) => {
     const normalizedQuery = query.toLowerCase();
     let i = 0;
 
-    // Parcourt toutes les recettes avec une boucle while
+    // Parcours toutes les recettes avec une boucle while
 
     while (i < recipes.length) {
 
