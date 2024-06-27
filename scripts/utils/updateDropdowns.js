@@ -38,17 +38,18 @@ export const updateDropdowns = (recipes) => {
         recipe.ingredients.forEach(ingredient => {
             ingredientSet.add(ingredient.ingredient.toLowerCase());
         });
-        applianceSet.add(recipe.appliance);
+        applianceSet.add(recipe.appliance.toLowerCase());
         recipe.ustensils.forEach(ustensil => {
-            ustensilSet.add(ustensil);
+            ustensilSet.add(ustensil.toLowerCase());
         });
     });
 
     // Convertir les sets en arrays pour les dropdowns
 
-    const ingredients = Array.from(ingredientSet).sort();
-    const appliances = Array.from(applianceSet).sort();
-    const ustensils = Array.from(ustensilSet).sort();    
+    const ingredients = Array.from(ingredientSet).sort((a, b) => a.localeCompare(b));
+    const appliances = Array.from(applianceSet).sort((a, b) => a.localeCompare(b));
+    const ustensils = Array.from(ustensilSet).sort((a, b) => a.localeCompare(b));
+    
 
     const ingredientsDropdown = document.getElementById('ingredients_list');
     const appliancesDropdown = document.getElementById('appliances_list');

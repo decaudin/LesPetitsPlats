@@ -1,19 +1,17 @@
 import { updateDropdowns } from "./updateDropdowns.js";
 import { recipesCounter } from "./recipesCounter.js";
+import { filterByTags } from "./filterByTags.js";
+import { getSelectedTags } from "./getSelectedTags.js"; 
 
 const tagsContainer = document.querySelector('.tags');
 
 // Fonction pour mettre à jour l'affichage des recettes, le contenu des dropdowns et le compteur de recettes en fonction des tags sélectionnés
 
-const updateRecipeDisplay = () => {
+export const updateRecipeDisplay = () => {
 
-    // Création d'un tableau 'tags' contenant les tags sélectionnés depuis les dropdowns
+    // Création d'un tableau 'tags' contenant les tags sélectionnés depuis les dropdowns avec la fonction 'getSelectedTags'
 
-    const tags = Array.from(tagsContainer.getElementsByClassName('tag')).map(tag => ({
-
-        text: tag.textContent.toLowerCase(),
-        type: tag.getAttribute('data-type'),
-    }));
+    const tags = getSelectedTags(tagsContainer);
 
     const recipeCards = document.querySelectorAll('.recipe_card');
     const visibleRecipes = [];
@@ -21,36 +19,25 @@ const updateRecipeDisplay = () => {
     // Affichage des recettes qui ont des correspondances avec les tags sélectionnés
 
     recipeCards.forEach(card => {
+        const recipe = {
+            ingredients: card.getAttribute('data-ingredients').toLowerCase().split(',').map(ingredient => ({ ingredient })),
+            appliance: card.getAttribute('data-appliance').toLowerCase(),
+            ustensils: card.getAttribute('data-ustensils').toLowerCase().split(',')
+        };
+        
+        const matches = filterByTags([recipe], tags).length > 0;
 
-        const ingredients = card.getAttribute('data-ingredients').toLowerCase().split(',');
-        const appliance = card.getAttribute('data-appliance').toLowerCase();
-        const ustensils = card.getAttribute('data-ustensils').toLowerCase().split(',');
+        matches ? (card.style.display = 'block', visibleRecipes.push(recipe)) : card.style.display = 'none';
 
-        const matches = tags.every(tag => {
-            if (tag.type === 'ingredient') {
-                return ingredients.some(ingredient => ingredient.includes(tag.text));
-            } else if (tag.type === 'appliance') {
-                return appliance.includes(tag.text);
-            } else if (tag.type === 'ustensil') {
-                return ustensils.some(ustensil => ustensil.includes(tag.text));
-            }
-            return false;
-        });
-
-        matches ? (card.style.display = 'block', visibleRecipes.push({
-            ingredients: ingredients.map(ingredient => ({ ingredient })),
-            appliance,
-            ustensils
-        })) : card.style.display = 'none';
-    });
-
-    // Mettre à jour les dropdowns avec les ingrédients, appareils et ustensiles des recettes visibles
+    // Mise à jour des dropdowns avec les ingrédients, appareils et ustensiles des recettes visibles avec 'updateDropdowns'   
 
     updateDropdowns(visibleRecipes);
 
-    // Fonction pour mettre à jour le compteur de recette affichées
+    // Mise à jour du compteur de recettes affichées avec 'recipesCounter'
 
     recipesCounter(visibleRecipes);
+
+    })
 };
 
 

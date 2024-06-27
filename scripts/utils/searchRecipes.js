@@ -1,9 +1,11 @@
 import { stringContains } from "./stringContains.js";
 
 export const searchRecipes = (query, recipes) => {
+
     const normalizedQuery = query.toLowerCase();
 
     return recipes.filter(recipe => {
+        
         const name = recipe.name.toLowerCase();
         const ingredients = recipe.ingredients.map(ingredient => ingredient.ingredient.toLowerCase());
         const description = recipe.description.toLowerCase();
