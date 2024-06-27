@@ -2,7 +2,7 @@ import { searchRecipes } from "./searchRecipes.js";
 import { recipeTemplateGallery } from "../view/gallery.js";
 import { updateDropdowns } from "./updateDropdowns.js";
 import { escapeHtml } from "./escapeHtml.js";
-import { filterByTags } from "./filterByTag.js";
+import { filterByTags } from "./filterByTags.js";
 import { getSelectedTags } from "./getSelectedTags.js";
 
 export const inputAndTagSearch = (recipes) => {

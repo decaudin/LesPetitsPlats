@@ -5,7 +5,7 @@ const removeAccents = (str) => {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 };
 
-// Fonction pour recherche une chaîne de caractère dans une autre (rechercher needle dans haystack)
+// Fonction pour rechercher une chaîne de caractère dans une autre (rechercher needle dans haystack)
 
 export const stringContains = (haystack, needle) => {
 

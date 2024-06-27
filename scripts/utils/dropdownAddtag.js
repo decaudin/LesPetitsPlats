@@ -1,6 +1,6 @@
 import { updateDropdowns } from "./updateDropdowns.js";
 import { recipesCounter } from "./recipesCounter.js";
-import { filterByTags } from "./filterByTag.js";
+import { filterByTags } from "./filterByTags.js";
 import { getSelectedTags } from "./getSelectedTags.js"; 
 
 const tagsContainer = document.querySelector('.tags');
