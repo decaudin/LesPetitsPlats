@@ -8,7 +8,7 @@ export const filterByTags = (items, tags) => {
         const appliance = item.appliance.toLowerCase();
         const ustensils = item.ustensils.map(ustensil => ustensil.toLowerCase());
 
-        return tags.some(tag => {
+        return tags.every(tag => {
             if (tag.type === 'ingredient') {
                 return ingredients.includes(tag.text.toLowerCase());
             } else if (tag.type === 'appliance') {

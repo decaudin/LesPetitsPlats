@@ -40,7 +40,6 @@ export const updateRecipeDisplay = () => {
     })
 };
 
-
 // Fonction pour créer, ajouter un tag et filtrer la galerie en conséquence
 
 const addTag = (tagText, tagType) => {

@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     handleDropdown(dropdownTitleSection, dropdownContent, arrow);
 
-    // Initialisation de la recherche principale (via l'input)
+    // Initialisation des deux types de recherches (input/tags)
     
     inputAndTagSearch(recipes);
 
