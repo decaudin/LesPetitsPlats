@@ -59,7 +59,7 @@ export const inputAndTagSearch = (recipes) => {
 
                 // Afficher le message d'erreur si aucune recette ne correspond, effacer la galerie et le contenu des Dropdowns
                 
-                messageContainer.innerHTML = `Aucune recette ne correspond à votre recherche. Vous pouvez chercher « tarte aux pommes », « poisson », etc.`;
+                messageContainer.innerHTML = `Aucune recette ne contient ‘${query}’ vous pouvez chercher « tarte aux pommes », « poisson », etc.`;
                 
                 recipeTemplateGallery([]);
                 
